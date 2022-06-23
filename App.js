@@ -42,7 +42,7 @@ export default function App() {
  const temaMenu={
    dark:false,
    colors:{
-     primary: 'rgb(255,255,255)', //cor do texto menu selecionado
+     primary: '#fc0', //cor do texto menu selecionado
      background: 'rgb(0,0,0)', //cor de fundo
      card: 'rgb(0,0,0)', //cor do fundo do menu
      text: 'rgb(255,255,255)', //cor texto
