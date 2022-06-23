@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "cara-coroa",
+    "slug": "cara-coroa",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
