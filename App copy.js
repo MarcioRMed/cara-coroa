@@ -1,3 +1,4 @@
+// antes do refatoramento
 import React,{useState} from 'react';
 import { SafeAreaView, StyleSheet, Text, View, Button, Image } from 'react-native';
 
