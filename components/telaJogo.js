@@ -17,11 +17,14 @@ export default function telaJogo(){
 
   let indiceMoeda=0
   const [moedaAtual,setMoedaAtual]=useState(moedas[indiceMoeda])
+ 
+  const[CaraCoroa,setCaraCoroa]=useState('')
 
-  console.log('moedaAtual' ,moedaAtual)
+  // console.log('moedaAtual' ,moedaAtual)
 
-  let maxGiros=Globais.qtdeGiros
+  let maxGiros=Globais.qtdeGiros //recebe das classes
   let tempoGiro= Globais.tempEspera
+ 
 
   async function espera(tmp){ //tempo
     function tempo(ms){
@@ -33,6 +36,9 @@ export default function telaJogo(){
   async function girarMoeda(){
     maxGiros=Globais.qtdeGiros
     tempoGiro=Globais.tempEspera
+    Globais.titulo = ''
+    Globais.welcome = ''
+    
     indiceMoeda=0
 
     for(let i=0; i<(maxGiros*8); i++){
@@ -45,20 +51,36 @@ export default function telaJogo(){
       await espera(tempoGiro)
     }
     
-    let res= Math.floor(Math.random()*10)+1;
+    //--- Sorteio ---
+    let sorteio= Math.floor(Math.random()*10)+1;
 
-    if(res<=5)
-      res=0
-    else
-      res=4  
+    let res
+   
+    console.log('sorteio' ,sorteio)
 
+    if(sorteio<=5){
+      res=0 //coroa     
+      setCaraCoroa('COROA')      
       setMoedaAtual(moedas[res])
+      // console.log('Globais.titulo' , Globais.titulo)
+
+    }else {
+      res=4 //cara
+      setCaraCoroa('CARA')
+      setMoedaAtual(moedas[res])
+      // console.log('Globais.titulo' , Globais.titulo)
+
+    }           
+
   }
 
  
   return (
     <SafeAreaView style={styles.container}>    
-      <Text style={styles.title}>{Globais.titulo}</Text>
+      <Text style={styles.welcome}>{Globais.welcome}</Text>
+      <Text style={styles.welcome}>{Globais.titulo}</Text>
+      
+      <Text style={styles.respSorteio}>{CaraCoroa}</Text>
      
       <Image style={styles.image} 
              source={moedaAtual} />
@@ -78,8 +100,16 @@ export default function telaJogo(){
       flex: 1,
       backgroundColor: '#000',
       alignItems: 'center',
-      justifyContent: 'center',
+      justifyContent: 'space-between',
       padding:20,
+    },
+    welcome:{
+      justifyContent: 'center',
+      alignContent:'center',
+      padding:10,
+      fontSize:30,
+      color:'#fc0',
+      textAlign:'center',
     },
 
     image:{
@@ -87,9 +117,11 @@ export default function telaJogo(){
       height:250,
       resizeMode: 'contain',
       paddingHorizontal:50,
+      paddingVertical:50,
       
     },
-    title:{
+    respSorteio:{
+      marginVertical:1,
       justifyContent:'center',
       alignContent:'center',
       padding:20,
@@ -110,7 +142,6 @@ export default function telaJogo(){
       color:'#000',
       textTransform:'uppercase',
       fontSize:'20,'
-
     },
   });
   

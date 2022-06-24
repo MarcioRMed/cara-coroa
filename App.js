@@ -11,7 +11,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 function HomeScreen() {
   return (
-    <View >
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
      <TelaJogo/>
     </View>
   );
@@ -38,7 +38,7 @@ export default function App() {
   );
 }
 
-
+// --- Tema config ---
  const temaMenu={
    dark:false,
    colors:{
