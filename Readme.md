@@ -57,7 +57,6 @@ Esse projeto está sob MIT license. Veja [LICENSE](https://github.com/belapferre
  <p align="center" >
  <img src="./images/config.jpg" width='50%' alt="imagem do app"/>
 </p>
-</p>
 
 ---
 <h3 align="center">
